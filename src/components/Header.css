@@ -7,7 +7,7 @@ div {
 .nav {
     padding-top: 20px;
     padding-bottom: 20px;
-    background: linear-gradient(90deg, rgba(0,0,0,.5) 0%, rgba(74,74,74,.5) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(74,74,74,.7) 100%);
     position: fixed;
     top: 0;
     left: 0;
