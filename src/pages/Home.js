@@ -1,9 +1,18 @@
 import React from 'react';
 import './Home.css'
-import { Button, Paper, styled } from "@material-ui/core";
+import { Button, Paper, styled, TextField } from "@material-ui/core";
 
 const GitHubButton = styled(Button)({
     background: 'linear-gradient(90deg, rgba(0,182,177,1) 0%, rgba(78,232,21,1) 100%)',
+    border: 0,
+    borderRadius: 4,
+    boxShadow: '0 3px 5px 2px linear-gradient(90deg, rgba(0,182,177,1) 0%, rgba(78,232,21,1) 100%)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+});
+const SubmitButton = styled(Button)({
+    background: 'linear-gradient(90deg, rgba(255,8,0,1) 0%, rgba(232,219,21,1) 100%)',
     border: 0,
     borderRadius: 4,
     boxShadow: '0 3px 5px 2px linear-gradient(90deg, rgba(0,182,177,1) 0%, rgba(78,232,21,1) 100%)',
@@ -39,7 +48,20 @@ const Home = () => {
                 </Paper>
             </section>
             <section className="three">
-                <h1>Contact me.</h1>
+                <Paper className="three_contact">
+                    <h1>Contact me.</h1>
+                    <p>// currently not working //</p>
+                    <TextField color="secondary" className="three_contact_field" label="Email address" variant="filled" />
+                    <br />
+                    <br/>
+                    <TextField color="secondary" className="three_contact_field" label="Subject" variant="filled" />
+                    <br />
+                    <br/>
+                    <TextField color="secondary" multiline className={"three_contact_field"} label="Message..." rows={5} variant="filled" />
+                    <br />
+                    <br/>
+                    <SubmitButton fullWidth>submit</SubmitButton>
+                </Paper>
             </section>
         </div>
     )

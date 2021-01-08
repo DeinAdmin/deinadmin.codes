@@ -51,6 +51,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+.three_contact {
+    padding: 10px 30px;
+    margin: 30px;
+}
+.three_contact_field {
+    width: 500px;
 }
 
 @media (max-width: 1670px) {
@@ -70,5 +78,15 @@
     .two {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .three_contact {
+        padding: 0;
+        width: 100%;
+    }
+    .three_contact_field {
+        width: 100%;
+        margin: 0 10px;
     }
 }
