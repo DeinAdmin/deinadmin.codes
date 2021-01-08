@@ -25,3 +25,5 @@ $ npm build
 - Coded by me
 - Framework by ReactJS
 - Little help from @material-ui/core
+
+### Have fun!
