@@ -104,7 +104,8 @@ h1 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        padding: 20px;
     }
     .header__modal a {
         font-size: 30px;
