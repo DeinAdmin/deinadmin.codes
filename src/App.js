@@ -1,24 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Default from "./pages/Default";
+import Header from "./components/Header";
+import {createMuiTheme, MuiThemeProvider, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
+const App = () => {
+  const theme = createMuiTheme({
+    palette: {
+      type: "dark"
+    }
+  })
+  const [open, setOpen] = React.useState(false);
 
-function App() {
+  React.useEffect(() => {
+    if(localStorage.getItem("cookieAgreement") === "true") {
+
+    } else {
+      setTimeout(() => {
+        setOpen(true)
+      }, 1000)
+    }
+  });
+
+  const handleClose = () => {
+    setOpen(false);
+    localStorage.setItem("cookieAgreement", "true");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <MuiThemeProvider theme={theme}>
+        <Dialog
+            open={open}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <DialogTitle id="alert-dialog-title">{"This website uses cookies."}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              By using this website you agree that cookies will be stored in your local storage.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} variant={"contained"} color="secondary" autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+        <div className={"App"}>
+          <Header />
+          <main>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Default />
+            </Switch>
+          </main>
+        </div>
+      </MuiThemeProvider>
+    </Router>
   );
 }
 
